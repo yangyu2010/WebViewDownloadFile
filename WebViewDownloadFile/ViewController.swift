@@ -7,14 +7,18 @@
 //
 
 import UIKit
+import WebKit
 
 class ViewController: UIViewController {
 
+    var webView: DownloaderWebView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        webView = DownloaderWebView.loadFromNib()
+        webView.frame = self.view.bounds
+        self.view.addSubview(webView)
     }
 
-
 }
-

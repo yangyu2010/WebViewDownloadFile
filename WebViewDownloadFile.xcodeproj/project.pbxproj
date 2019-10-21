@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		860AE691235D42F60078D7FC /* WebDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860AE690235D42F60078D7FC /* WebDownloader.swift */; };
+		860AE697235D67470078D7FC /* DownloaderWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860AE696235D67470078D7FC /* DownloaderWebView.swift */; };
+		860AE699235D675F0078D7FC /* DownloaderWebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 860AE698235D675F0078D7FC /* DownloaderWebView.xib */; };
+		860AE69C235D69ED0078D7FC /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860AE69B235D69ED0078D7FC /* NibLoadable.swift */; };
 		864A89F02359A90F00CA16A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A89EF2359A90F00CA16A6 /* AppDelegate.swift */; };
 		864A89F22359A90F00CA16A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A89F12359A90F00CA16A6 /* ViewController.swift */; };
 		864A89F52359A90F00CA16A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 864A89F32359A90F00CA16A6 /* Main.storyboard */; };
@@ -18,6 +22,10 @@
 /* Begin PBXFileReference section */
 		262EE566B0B5B9C6F6E89624 /* Pods_WebViewDownloadFile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebViewDownloadFile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76990B2162DF13AF8769E712 /* Pods-WebViewDownloadFile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewDownloadFile.release.xcconfig"; path = "Target Support Files/Pods-WebViewDownloadFile/Pods-WebViewDownloadFile.release.xcconfig"; sourceTree = "<group>"; };
+		860AE690235D42F60078D7FC /* WebDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebDownloader.swift; sourceTree = "<group>"; };
+		860AE696235D67470078D7FC /* DownloaderWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderWebView.swift; sourceTree = "<group>"; };
+		860AE698235D675F0078D7FC /* DownloaderWebView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DownloaderWebView.xib; sourceTree = "<group>"; };
+		860AE69B235D69ED0078D7FC /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		864A89EC2359A90F00CA16A6 /* WebViewDownloadFile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebViewDownloadFile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		864A89EF2359A90F00CA16A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		864A89F12359A90F00CA16A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,8 +54,15 @@
 				F361FF1C2A5EFE22DD826814 /* Pods-WebViewDownloadFile.debug.xcconfig */,
 				76990B2162DF13AF8769E712 /* Pods-WebViewDownloadFile.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		860AE69A235D69DD0078D7FC /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				860AE69B235D69ED0078D7FC /* NibLoadable.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		864A89E32359A90F00CA16A6 = {
@@ -71,12 +86,16 @@
 		864A89EE2359A90F00CA16A6 /* WebViewDownloadFile */ = {
 			isa = PBXGroup;
 			children = (
+				860AE69A235D69DD0078D7FC /* Protocol */,
 				864A89EF2359A90F00CA16A6 /* AppDelegate.swift */,
 				864A89F12359A90F00CA16A6 /* ViewController.swift */,
 				864A89F32359A90F00CA16A6 /* Main.storyboard */,
 				864A89F62359A91100CA16A6 /* Assets.xcassets */,
 				864A89F82359A91100CA16A6 /* LaunchScreen.storyboard */,
 				864A89FB2359A91100CA16A6 /* Info.plist */,
+				860AE690235D42F60078D7FC /* WebDownloader.swift */,
+				860AE696235D67470078D7FC /* DownloaderWebView.swift */,
+				860AE698235D675F0078D7FC /* DownloaderWebView.xib */,
 			);
 			path = WebViewDownloadFile;
 			sourceTree = "<group>";
@@ -151,6 +170,7 @@
 			files = (
 				864A89FA2359A91100CA16A6 /* LaunchScreen.storyboard in Resources */,
 				864A89F72359A91100CA16A6 /* Assets.xcassets in Resources */,
+				860AE699235D675F0078D7FC /* DownloaderWebView.xib in Resources */,
 				864A89F52359A90F00CA16A6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,6 +231,9 @@
 			files = (
 				864A89F22359A90F00CA16A6 /* ViewController.swift in Sources */,
 				864A89F02359A90F00CA16A6 /* AppDelegate.swift in Sources */,
+				860AE697235D67470078D7FC /* DownloaderWebView.swift in Sources */,
+				860AE69C235D69ED0078D7FC /* NibLoadable.swift in Sources */,
+				860AE691235D42F60078D7FC /* WebDownloader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

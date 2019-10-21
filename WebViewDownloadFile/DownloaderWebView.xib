@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DownloaderWebView" customModule="WebViewDownloadFile" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WgW-BO-t8h">
+                    <rect key="frame" x="0.0" y="104" width="414" height="709"/>
+                    <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </webView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g5V-IN-zdP">
+                    <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                    <items>
+                        <barButtonItem title="返回" id="0Ny-1p-7R7">
+                            <connections>
+                                <action selector="actionBack:" destination="iN0-l3-epB" id="tn6-bg-zwd"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="8Zh-hS-pzF"/>
+                        <barButtonItem title="快进" id="SAo-td-o40">
+                            <connections>
+                                <action selector="actionAdvance:" destination="iN0-l3-epB" id="rSv-VX-r6O"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="irB-Qe-5ob"/>
+                        <barButtonItem title="保存网页" id="2Gt-Xw-Vo7">
+                            <connections>
+                                <action selector="actionSaveHTML:" destination="iN0-l3-epB" id="Eb2-RQ-Egv"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="gun-v7-q2d"/>
+                        <barButtonItem title="刷新" id="3ld-BL-qmt">
+                            <connections>
+                                <action selector="actionRefresh:" destination="iN0-l3-epB" id="KWp-VC-Rt1"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="SxK-g5-odk"/>
+                        <barButtonItem title="删除" id="hhN-uA-icL">
+                            <connections>
+                                <action selector="actionDelete:" destination="iN0-l3-epB" id="K5z-V0-MYN"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tcg-Ib-pxQ">
+                    <rect key="frame" x="0.0" y="44" width="414" height="60"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ic5-lA-o3o">
+                            <rect key="frame" x="8" y="8" width="398" height="44"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="go"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="ic5-lA-o3o" secondAttribute="bottom" constant="8" id="NGb-SQ-bsJ"/>
+                        <constraint firstAttribute="trailing" secondItem="ic5-lA-o3o" secondAttribute="trailing" constant="8" id="cd8-FU-8oq"/>
+                        <constraint firstItem="ic5-lA-o3o" firstAttribute="top" secondItem="Tcg-Ib-pxQ" secondAttribute="top" constant="8" id="kRB-bt-XZk"/>
+                        <constraint firstItem="ic5-lA-o3o" firstAttribute="leading" secondItem="Tcg-Ib-pxQ" secondAttribute="leading" constant="8" id="oDP-87-yGO"/>
+                        <constraint firstAttribute="height" constant="60" id="wDJ-2G-IbG"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Tcg-Ib-pxQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="8Sd-v6-dGr"/>
+                <constraint firstItem="g5V-IN-zdP" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="9CV-o3-uqi"/>
+                <constraint firstItem="Tcg-Ib-pxQ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Cma-yl-8eQ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="WgW-BO-t8h" secondAttribute="trailing" id="Xnj-n3-sf7"/>
+                <constraint firstItem="Tcg-Ib-pxQ" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="aFJ-xh-x3L"/>
+                <constraint firstItem="g5V-IN-zdP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ayv-BG-HoF"/>
+                <constraint firstItem="g5V-IN-zdP" firstAttribute="top" secondItem="WgW-BO-t8h" secondAttribute="bottom" id="hLf-Bh-vtZ"/>
+                <constraint firstItem="WgW-BO-t8h" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="k5M-dl-rBs"/>
+                <constraint firstItem="WgW-BO-t8h" firstAttribute="top" secondItem="Tcg-Ib-pxQ" secondAttribute="bottom" id="rlk-LQ-1ct"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="g5V-IN-zdP" secondAttribute="bottom" id="yi1-le-iZL"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="textField" destination="ic5-lA-o3o" id="k3s-Kh-gJG"/>
+                <outlet property="webView" destination="WgW-BO-t8h" id="Vo1-Lb-JW0"/>
+            </connections>
+            <point key="canvasLocation" x="84.057971014492765" y="241.74107142857142"/>
+        </view>
+    </objects>
+</document>
