@@ -18,7 +18,7 @@
             <subviews>
                 <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WgW-BO-t8h">
                     <rect key="frame" x="0.0" y="104" width="414" height="709"/>
-                    <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </webView>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g5V-IN-zdP">
                     <rect key="frame" x="0.0" y="813" width="414" height="49"/>
@@ -57,7 +57,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tcg-Ib-pxQ">
                     <rect key="frame" x="0.0" y="44" width="414" height="60"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ic5-lA-o3o">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ic5-lA-o3o">
                             <rect key="frame" x="8" y="8" width="398" height="44"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -73,15 +73,57 @@
                         <constraint firstAttribute="height" constant="60" id="wDJ-2G-IbG"/>
                     </constraints>
                 </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wr4-Sw-9UE">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHH-rk-k3a">
+                            <rect key="frame" x="107" y="348" width="200" height="200"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xSY-ue-Ahu" customClass="ProgressView" customModule="WebViewDownloadFile" customModuleProvider="target">
+                                    <rect key="frame" x="49" y="8" width="102" height="102"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="102" id="2kU-mS-XBt"/>
+                                        <constraint firstAttribute="height" constant="102" id="uuc-25-daC"/>
+                                    </constraints>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正在下载..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGv-N7-jiO">
+                                    <rect key="frame" x="58.5" y="118" width="83.5" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="aHH-rk-k3a" secondAttribute="height" multiplier="1:1" id="3B3-uL-k0d"/>
+                                <constraint firstItem="xSY-ue-Ahu" firstAttribute="top" secondItem="aHH-rk-k3a" secondAttribute="top" constant="8" id="3QO-0z-ddb"/>
+                                <constraint firstItem="cGv-N7-jiO" firstAttribute="centerX" secondItem="aHH-rk-k3a" secondAttribute="centerX" id="FQI-I8-bUV"/>
+                                <constraint firstItem="xSY-ue-Ahu" firstAttribute="centerX" secondItem="aHH-rk-k3a" secondAttribute="centerX" id="K29-ka-c7v"/>
+                                <constraint firstAttribute="height" constant="200" id="bpt-dk-EJE"/>
+                                <constraint firstItem="cGv-N7-jiO" firstAttribute="top" secondItem="xSY-ue-Ahu" secondAttribute="bottom" constant="8" id="neD-v8-Och"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="aHH-rk-k3a" firstAttribute="centerX" secondItem="Wr4-Sw-9UE" secondAttribute="centerX" id="O48-tO-sz9"/>
+                        <constraint firstItem="aHH-rk-k3a" firstAttribute="centerY" secondItem="Wr4-Sw-9UE" secondAttribute="centerY" id="h5p-le-1c4"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Tcg-Ib-pxQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="8Sd-v6-dGr"/>
                 <constraint firstItem="g5V-IN-zdP" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="9CV-o3-uqi"/>
                 <constraint firstItem="Tcg-Ib-pxQ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Cma-yl-8eQ"/>
+                <constraint firstItem="Wr4-Sw-9UE" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="DMC-Va-v1x"/>
+                <constraint firstItem="Wr4-Sw-9UE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="TMS-iT-bjk"/>
+                <constraint firstItem="Wr4-Sw-9UE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="XmO-td-Nk8"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="WgW-BO-t8h" secondAttribute="trailing" id="Xnj-n3-sf7"/>
                 <constraint firstItem="Tcg-Ib-pxQ" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="aFJ-xh-x3L"/>
                 <constraint firstItem="g5V-IN-zdP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ayv-BG-HoF"/>
+                <constraint firstAttribute="bottom" secondItem="Wr4-Sw-9UE" secondAttribute="bottom" id="b3m-Xs-aEf"/>
                 <constraint firstItem="g5V-IN-zdP" firstAttribute="top" secondItem="WgW-BO-t8h" secondAttribute="bottom" id="hLf-Bh-vtZ"/>
                 <constraint firstItem="WgW-BO-t8h" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="k5M-dl-rBs"/>
                 <constraint firstItem="WgW-BO-t8h" firstAttribute="top" secondItem="Tcg-Ib-pxQ" secondAttribute="bottom" id="rlk-LQ-1ct"/>
@@ -89,6 +131,8 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="downloadingView" destination="Wr4-Sw-9UE" id="Mu9-C6-r2l"/>
+                <outlet property="progressView" destination="xSY-ue-Ahu" id="pXi-eB-1B4"/>
                 <outlet property="textField" destination="ic5-lA-o3o" id="k3s-Kh-gJG"/>
                 <outlet property="webView" destination="WgW-BO-t8h" id="Vo1-Lb-JW0"/>
             </connections>

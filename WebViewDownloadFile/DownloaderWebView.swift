@@ -12,22 +12,22 @@ class DownloaderWebView: UIView, NibLoadable {
 
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var downloadingView: UIView!
+    @IBOutlet weak var progressView: ProgressView!
     
     var downloader: WebDownloader!
     
     // MARK:- View
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         
         textField.delegate = self
         
         downloader = WebDownloader()
-        downloader.realURLCompletion = {[unowned self]  (str: String?) -> Void in
-            self.textField.text = str
-        }
-        webView.delegate = downloader
+        downloader.delegate = self
 
+        webView.delegate = downloader
     }
     
     // MARK:- Action
@@ -73,4 +73,25 @@ extension DownloaderWebView: UITextFieldDelegate {
         loadRequest()
         return true
     }
+}
+
+
+extension DownloaderWebView: WebDownloaderDelegate {
+    func startRequestWith(_ urlString: String?) {
+        textField.text = urlString
+    }
+    
+    func startDownloadFile() {
+        downloadingView.isHidden = false
+    }
+    
+    func downloadFile(_ progress: Float) {
+        progressView.progress = progress
+    }
+    
+    func endDownloadFile(_ error: Error?) {
+        downloadingView.isHidden = true
+    }
+    
+    
 }

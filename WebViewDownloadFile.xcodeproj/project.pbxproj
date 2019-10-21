@@ -16,6 +16,7 @@
 		864A89F52359A90F00CA16A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 864A89F32359A90F00CA16A6 /* Main.storyboard */; };
 		864A89F72359A91100CA16A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 864A89F62359A91100CA16A6 /* Assets.xcassets */; };
 		864A89FA2359A91100CA16A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 864A89F82359A91100CA16A6 /* LaunchScreen.storyboard */; };
+		86B0F5C2235D91160022E15F /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B0F5C1235D91160022E15F /* ProgressView.swift */; };
 		A3527FFA6A39D3E5A9B24502 /* Pods_WebViewDownloadFile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 262EE566B0B5B9C6F6E89624 /* Pods_WebViewDownloadFile.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		864A89F62359A91100CA16A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		864A89F92359A91100CA16A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		864A89FB2359A91100CA16A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86B0F5C1235D91160022E15F /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		F361FF1C2A5EFE22DD826814 /* Pods-WebViewDownloadFile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewDownloadFile.debug.xcconfig"; path = "Target Support Files/Pods-WebViewDownloadFile/Pods-WebViewDownloadFile.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,9 +95,10 @@
 				864A89F62359A91100CA16A6 /* Assets.xcassets */,
 				864A89F82359A91100CA16A6 /* LaunchScreen.storyboard */,
 				864A89FB2359A91100CA16A6 /* Info.plist */,
-				860AE690235D42F60078D7FC /* WebDownloader.swift */,
 				860AE696235D67470078D7FC /* DownloaderWebView.swift */,
 				860AE698235D675F0078D7FC /* DownloaderWebView.xib */,
+				860AE690235D42F60078D7FC /* WebDownloader.swift */,
+				86B0F5C1235D91160022E15F /* ProgressView.swift */,
 			);
 			path = WebViewDownloadFile;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				860AE697235D67470078D7FC /* DownloaderWebView.swift in Sources */,
 				860AE69C235D69ED0078D7FC /* NibLoadable.swift in Sources */,
 				860AE691235D42F60078D7FC /* WebDownloader.swift in Sources */,
+				86B0F5C2235D91160022E15F /* ProgressView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +385,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4ABFSEFEC8;
 				INFOPLIST_FILE = WebViewDownloadFile/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -400,6 +405,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4ABFSEFEC8;
 				INFOPLIST_FILE = WebViewDownloadFile/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

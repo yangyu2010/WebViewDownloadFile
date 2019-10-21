@@ -9,12 +9,22 @@
 import UIKit
 import Alamofire
 
+protocol WebDownloaderDelegate {
+    func startRequestWith(_ urlString: String?)
+    func startDownloadFile()
+    func downloadFile(_ progress: Float)
+    func endDownloadFile(_ error: Error?)
+}
+
 private let kCachePath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first!
 private let kTempPath = NSTemporaryDirectory()
 
 class WebDownloader: NSObject {
-    /// 浏览器解析后的URL显示在输入界面
-    var realURLCompletion: ((String?) -> Void)?
+//    /// 浏览器解析后的URL显示在输入界面
+//    var realURLCompletion: ((String?) -> Void)?
+//    /// 浏览器解析后的URL显示在输入界面
+//    var progressBlock: ((Float) -> Void)?
+    var delegate: WebDownloaderDelegate?
     
     /// 支持下载的文件后缀
     let supportAssetType = [
@@ -64,11 +74,13 @@ class WebDownloader: NSObject {
         // 下载完成后保存的路径
         downLoadedPath = kCachePath + "/" + fileName
         
+        #if !DEBUG
         // 检查当前路径是否已经下载了该文件
         if FileManager.default.fileExists(atPath: downLoadedPath!) {
             print("文件已下载...")
             return
         }
+        #endif
         
         // 检查tmp是否有之前没下载成功的, 有直接删除老的, 开始新的下载
         // To-Do 这里可以用断点续传来下载
@@ -90,9 +102,7 @@ class WebDownloader: NSObject {
 extension WebDownloader: UIWebViewDelegate {
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebView.NavigationType) -> Bool {
         
-        if realURLCompletion != nil {
-            realURLCompletion!(request.url?.absoluteString)
-        }
+        delegate?.startRequestWith(request.url?.absoluteString)
         
         if requestIsDownloadable(request: request) {
             initializeDownload(download: request)
@@ -109,6 +119,8 @@ extension WebDownloader: URLSessionDataDelegate {
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
         print("开始响应...............")
         
+        delegate?.startDownloadFile()
+
         // 继续接受数据
         // 确定开始下载数据
         self.outputStream = OutputStream(toFileAtPath: self.downLoadingPath!, append: true)
@@ -131,12 +143,13 @@ extension WebDownloader: URLSessionDataDelegate {
             progress = 0.0
         }
         
+        delegate?.downloadFile(progress)
         print("接收到数据............... %.2f", progress)
     }
 
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         print("请求完成")
-        
+        delegate?.endDownloadFile(error)
         if (error == nil) {
             
             // 不一定是成功
