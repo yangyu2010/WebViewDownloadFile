@@ -10,20 +10,21 @@ import UIKit
 import WebKit
 
 protocol WebDownloaderDelegate {
+    /// 开始加载某个URL
     func startRequestWith(_ urlString: String?)
+    /// 开始下载文件
     func startDownloadFile()
+    /// 下载文件进度
     func downloadFile(_ progress: Float)
+    /// 停止下载文件
     func endDownloadFile(_ error: Error?)
 }
 
-private let kCachePath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first!
-private let kTempPath = NSTemporaryDirectory()
+let kCachePath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first!
+let kTempPath = NSTemporaryDirectory()
 
 class WebDownloader: NSObject {
-//    /// 浏览器解析后的URL显示在输入界面
-//    var realURLCompletion: ((String?) -> Void)?
-//    /// 浏览器解析后的URL显示在输入界面
-//    var progressBlock: ((Float) -> Void)?
+
     var delegate: WebDownloaderDelegate?
     
     /// 支持下载的文件后缀
@@ -33,7 +34,7 @@ class WebDownloader: NSObject {
         "exe", "dmg",                           // 安装包格式 可以不支持
         "mp3", "m4a", "wav", "flac",            // 音频格式
         "mp4", "mov", "rmvb", "avi", "mpeg",    // 视频格式
-        "jgp", "png", "jpge", "heic", "gif",    // 图片格式
+        "jpg", "png", "jpeg", "heic", "gif",    // 图片格式
     ]
     
     /// 文件下载的session
@@ -53,7 +54,8 @@ class WebDownloader: NSObject {
         guard let requestString = request.url?.absoluteString as NSString? else { return false }
         print(requestString)
         print(requestString.lastPathComponent)
-        print("---------")
+        print("---------\n")
+        
         let fileType = requestString.pathExtension
         return supportAssetType.contains(fileType)
     }
@@ -70,9 +72,9 @@ class WebDownloader: NSObject {
         let fileName = requestString.lastPathComponent
         
         // 临时下载文件路径
-        downLoadingPath = kTempPath + "/" + fileName
+        self.downLoadingPath = kTempPath + "/" + fileName
         // 下载完成后保存的路径
-        downLoadedPath = kCachePath + "/" + fileName
+        self.downLoadedPath = kCachePath + "/" + fileName
         
         #if !DEBUG
         // 检查当前路径是否已经下载了该文件

@@ -38,15 +38,47 @@ class DownloaderWebView: UIView, NibLoadable {
     // MARK:- Action
     
     @IBAction func actionBack(_ sender: Any) {
+        webView.goBack()
     }
     
     @IBAction func actionAdvance(_ sender: Any) {
+        webView.goForward()
     }
     
     @IBAction func actionSaveHTML(_ sender: Any) {
+        guard let currentURL = webView.url else { return }
+        var pathComponent = (currentURL.absoluteString as NSString).lastPathComponent
+        // 大于10个字符, 直接改成临时名
+        if pathComponent.count > 10 {
+            // loadingPage()
+            pathComponent = "loadingPage"
+        }
+        
+        var savePath = kCachePath + "/" + pathComponent + ".html"
+        var count = 1
+        while FileManager.default.fileExists(atPath: savePath) {
+            savePath = kCachePath + "/" + pathComponent + "(\(count))" + ".html"
+            count += 1
+        }
+        
+        let savePathURL = URL(fileURLWithPath: savePath)
+        
+        guard let data = try? Data(contentsOf: currentURL) else {
+            print("html读取内容失败")
+            return
+        }
+        
+        do {
+            try data.write(to: savePathURL)
+            print("html保存到本地成功")
+        } catch {
+            print("html保存到本地失败")
+            print(error.localizedDescription)
+        }
     }
     
     @IBAction func actionRefresh(_ sender: Any) {
+        webView.reload()
     }
     
     @IBAction func actionDelete(_ sender: Any) {
@@ -61,7 +93,7 @@ class DownloaderWebView: UIView, NibLoadable {
                 return
         }
         
-        if text.hasPrefix("https") == false ||
+        if text.hasPrefix("https") == false &&
             text.hasPrefix("http") == false {
             text = "https://" + text
         }
