@@ -46,28 +46,41 @@ class DownloaderWebView: UIView, NibLoadable {
     }
     
     @IBAction func actionSaveHTML(_ sender: Any) {
-        guard let currentURL = webView.url else { return }
-        var pathComponent = (currentURL.absoluteString as NSString).lastPathComponent
-        // 大于10个字符, 直接改成临时名
-        if pathComponent.count > 10 {
-            // loadingPage()
-            pathComponent = "loadingPage"
+        
+        // 获取当前的URL等
+        guard var urlString = self.textField.text else { return }
+        guard let currentURL = URL(string: urlString) else { return }
+        guard urlString.count > 0 else { return }
+        
+        // 分割?后面的参数
+        if let first = urlString.split(separator: "?").first {
+            urlString = String(first)
         }
         
+        var pathComponent = (urlString as NSString).lastPathComponent
+        
+        // 大于10个字符, 直接改成临时名
+        if pathComponent.count > 20 {
+            pathComponent = "page"
+        }
+
+        // 判断保存的路径是否已经存在, 若存在, 往上加
         var savePath = kCachePath + "/" + pathComponent + ".html"
         var count = 1
         while FileManager.default.fileExists(atPath: savePath) {
             savePath = kCachePath + "/" + pathComponent + "(\(count))" + ".html"
             count += 1
         }
-        
+
         let savePathURL = URL(fileURLWithPath: savePath)
         
+        // 读取html
         guard let data = try? Data(contentsOf: currentURL) else {
             print("html读取内容失败")
             return
         }
-        
+
+        // 保存html
         do {
             try data.write(to: savePathURL)
             print("html保存到本地成功")
