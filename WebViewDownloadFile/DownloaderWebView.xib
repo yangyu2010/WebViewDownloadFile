@@ -16,10 +16,14 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WgW-BO-t8h">
+                <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pil-e8-qal">
                     <rect key="frame" x="0.0" y="104" width="414" height="709"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </webView>
+                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <wkWebViewConfiguration key="configuration">
+                        <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                        <wkPreferences key="preferences"/>
+                    </wkWebViewConfiguration>
+                </wkWebView>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g5V-IN-zdP">
                     <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                     <items>
@@ -114,19 +118,19 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="Pil-e8-qal" firstAttribute="top" secondItem="Tcg-Ib-pxQ" secondAttribute="bottom" id="73P-Iv-j66"/>
                 <constraint firstItem="Tcg-Ib-pxQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="8Sd-v6-dGr"/>
                 <constraint firstItem="g5V-IN-zdP" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="9CV-o3-uqi"/>
                 <constraint firstItem="Tcg-Ib-pxQ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Cma-yl-8eQ"/>
                 <constraint firstItem="Wr4-Sw-9UE" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="DMC-Va-v1x"/>
+                <constraint firstItem="Pil-e8-qal" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Goj-IX-kM0"/>
+                <constraint firstItem="g5V-IN-zdP" firstAttribute="top" secondItem="Pil-e8-qal" secondAttribute="bottom" id="NAO-4f-ibV"/>
                 <constraint firstItem="Wr4-Sw-9UE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="TMS-iT-bjk"/>
                 <constraint firstItem="Wr4-Sw-9UE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="XmO-td-Nk8"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="WgW-BO-t8h" secondAttribute="trailing" id="Xnj-n3-sf7"/>
                 <constraint firstItem="Tcg-Ib-pxQ" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="aFJ-xh-x3L"/>
                 <constraint firstItem="g5V-IN-zdP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ayv-BG-HoF"/>
                 <constraint firstAttribute="bottom" secondItem="Wr4-Sw-9UE" secondAttribute="bottom" id="b3m-Xs-aEf"/>
-                <constraint firstItem="g5V-IN-zdP" firstAttribute="top" secondItem="WgW-BO-t8h" secondAttribute="bottom" id="hLf-Bh-vtZ"/>
-                <constraint firstItem="WgW-BO-t8h" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="k5M-dl-rBs"/>
-                <constraint firstItem="WgW-BO-t8h" firstAttribute="top" secondItem="Tcg-Ib-pxQ" secondAttribute="bottom" id="rlk-LQ-1ct"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Pil-e8-qal" secondAttribute="trailing" id="tM0-oW-EMq"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="g5V-IN-zdP" secondAttribute="bottom" id="yi1-le-iZL"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -134,7 +138,7 @@
                 <outlet property="downloadingView" destination="Wr4-Sw-9UE" id="Mu9-C6-r2l"/>
                 <outlet property="progressView" destination="xSY-ue-Ahu" id="pXi-eB-1B4"/>
                 <outlet property="textField" destination="ic5-lA-o3o" id="k3s-Kh-gJG"/>
-                <outlet property="webView" destination="WgW-BO-t8h" id="Vo1-Lb-JW0"/>
+                <outlet property="webView" destination="Pil-e8-qal" id="8tD-Qp-UEO"/>
             </connections>
             <point key="canvasLocation" x="84.057971014492765" y="241.74107142857142"/>
         </view>

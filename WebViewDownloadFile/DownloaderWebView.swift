@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import WebKit
 
 class DownloaderWebView: UIView, NibLoadable {
 
     @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var downloadingView: UIView!
     @IBOutlet weak var progressView: ProgressView!
     
@@ -27,7 +28,11 @@ class DownloaderWebView: UIView, NibLoadable {
         downloader = WebDownloader()
         downloader.delegate = self
 
-        webView.delegate = downloader
+        webView.navigationDelegate = downloader
+        
+        #if DEBUG
+        webView.load(URLRequest(url: URL(string: "https://www.baidu.com")!))
+        #endif
     }
     
     // MARK:- Action
@@ -62,7 +67,7 @@ class DownloaderWebView: UIView, NibLoadable {
         }
         
         guard let url = URL(string: text) else { return }
-        webView.loadRequest(URLRequest(url: url))
+        webView.load(URLRequest(url: url))
     }
 }
 

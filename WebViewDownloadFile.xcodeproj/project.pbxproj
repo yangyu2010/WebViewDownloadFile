@@ -17,6 +17,7 @@
 		864A89F72359A91100CA16A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 864A89F62359A91100CA16A6 /* Assets.xcassets */; };
 		864A89FA2359A91100CA16A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 864A89F82359A91100CA16A6 /* LaunchScreen.storyboard */; };
 		86B0F5C2235D91160022E15F /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B0F5C1235D91160022E15F /* ProgressView.swift */; };
+		86B0F5C4235DB0170022E15F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86B0F5C3235DB0170022E15F /* WebKit.framework */; };
 		A3527FFA6A39D3E5A9B24502 /* Pods_WebViewDownloadFile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 262EE566B0B5B9C6F6E89624 /* Pods_WebViewDownloadFile.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		864A89F92359A91100CA16A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		864A89FB2359A91100CA16A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86B0F5C1235D91160022E15F /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		86B0F5C3235DB0170022E15F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		F361FF1C2A5EFE22DD826814 /* Pods-WebViewDownloadFile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewDownloadFile.debug.xcconfig"; path = "Target Support Files/Pods-WebViewDownloadFile/Pods-WebViewDownloadFile.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -43,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86B0F5C4235DB0170022E15F /* WebKit.framework in Frameworks */,
 				A3527FFA6A39D3E5A9B24502 /* Pods_WebViewDownloadFile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -106,6 +109,7 @@
 		BE1D0E4E64651630A657A17E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				86B0F5C3235DB0170022E15F /* WebKit.framework */,
 				262EE566B0B5B9C6F6E89624 /* Pods_WebViewDownloadFile.framework */,
 			);
 			name = Frameworks;

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Alamofire
+import WebKit
 
 protocol WebDownloaderDelegate {
     func startRequestWith(_ urlString: String?)
@@ -99,17 +99,24 @@ class WebDownloader: NSObject {
 }
 
 
-extension WebDownloader: UIWebViewDelegate {
-    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebView.NavigationType) -> Bool {
+
+extension WebDownloader: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         
-        delegate?.startRequestWith(request.url?.absoluteString)
-        
-        if requestIsDownloadable(request: request) {
-            initializeDownload(download: request)
-            return false
+        guard let urlString = navigationAction.request.url?.absoluteString else {
+            decisionHandler(.cancel)
+            return
         }
         
-        return true
+        delegate?.startRequestWith(urlString)
+        
+        if requestIsDownloadable(request: navigationAction.request) {
+            initializeDownload(download: navigationAction.request)
+            decisionHandler(.cancel)
+            return
+        }
+        
+        decisionHandler(.allow)
     }
 }
 
